@@ -1,0 +1,77 @@
+
+html,
+body{
+    height: 100%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.layout{
+
+}
+    
+
+.library-menu{
+    display: flex;
+    height: 10em;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    background-color:thistle;
+}
+
+.btn-insert{
+    height: 80%;
+    width: 20em;
+}
+
+
+.library-content{
+
+    display: grid;
+    grid-template: repeat(auto-fit, minmax(20em, 1fr))/ repeat(auto-fill, minmax(23em,1fr));
+    background-color: bisque;
+}
+
+.book{
+    box-shadow: 7px 8px 9px -3px rgba(0,0,0,0.78);
+    border: 1px black solid;
+    border-left: 1em grey ridge;
+    display: grid;
+    margin: 2em;
+    padding: 1.5em;
+    background-color:tomato;
+    align-items: center;
+    justify-items: center;
+    grid-template-rows: 3em auto 2em;
+    grid-template-columns: auto;
+    gap: 1px ;
+
+
+}
+
+
+.title,
+.description
+{
+    grid-column: 1/3;
+}
+
+.title
+{
+    font-weight: bold;
+    font-size: 2em;
+}
+.description
+{
+
+}
+.author
+{
+    font-style: italic;
+    font-size: small;
+}
+.pages
+{
+
+}
