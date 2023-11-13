@@ -1,25 +1,21 @@
 
-const myLibrary = new Book();
-const btn = document.querySelector('.btn-insert')
-const libContent = document.querySelector('.library-content')
+const myLibrary = new Object();
 
-function Book()
+const modal = document.querySelector('.modal-form');
+const btnOpen = document.querySelector('.btn-open');
+const btnClose = document.querySelector('.btn-close');
+const libContent = document.querySelector('.library-content');
+
+
+
+btnClose.addEventListener('click', () => modal.close());
+btnOpen.addEventListener('click', function addBookToLibrary()
 {
-    this.book;
-
-}
-
-btn.addEventListener('click', function addBookToLibrary()
-{
-   
-   myLibrary.book = prompt();
-
-   createVisualBook(myLibrary.book);
-   title = myLibrary.book;
-
-   displayLibrary();
+    modal.showModal();
 
 });
+
+
 
 
 function displayLibrary()
@@ -62,5 +58,5 @@ function createVisualBook(title)
 
 function showBookForm()
 {
-    
+
 }

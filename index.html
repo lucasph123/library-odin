@@ -10,7 +10,23 @@
 <body>
     <div class="layout">
         <div class="library-menu">
-            <button class="btn-insert">Insert Book</button>
+            <button class="btn-open">Insert Book</button>
+            <dialog class="modal-form"> 
+                <button class="btn-close">X</button>
+                <h1>Book Application</h1>
+             
+                <form class="book-form">
+                    <label for="title">Book Title</label>
+                    <input id='title' type="text">
+                    <label for="description">Description of the Book</label>
+                    <textarea id="description"> </textarea>
+                    <label for="author">Author Name</label>
+                    <input id='author' type="text">
+                    <label for="pages">Num of Pages</label>
+                    <input id='pages' type="text">
+                    <input type="submit" id="btn-submit">
+                </form>
+            </dialog>
         </div>
         <div class="library-content">
             <div class="book">
