@@ -16,10 +16,13 @@ btnSubmit.addEventListener('click', function addBookToLibrary()
     const subDesc = document.querySelector('#description').value;
     const subAuthor = document.querySelector('#author').value;
     const subPages = document.querySelector('#pages').value;
-    console.log(subDesc);
+    if(subTitle !== ''&& subAuthor !== '' && subPages !== '')
+    {   
     const myLibrary = new SaveBookInLibrary(subTitle,subDesc,subAuthor,subPages);
     createVisualBook(subTitle,subDesc,subAuthor,subPages);
     libArray.push(myLibrary);
+    }
+    
       
  
 });
@@ -45,19 +48,27 @@ function createVisualBook(subTitle,subDesc,subAuthor,subPages)
     const authorDiv = document.createElement('div');
     const pagesDiv = document.createElement('div');
     const btnDel = document.createElement('button');
-    btnDel.addEventListener('click', () => deleteBook(titleDiv.textContent));
+    const slider =document.createElement('label');
+    const readSlider =document.createElement('input');
+    const readSliderCircle = document.createElement('span');
+    btnDel.addEventListener('click', () => deleteBook(titleDiv.textContent, bookDiv));
+
 
     bookDiv.classList.add('book');
     titleDiv.classList.add('title');
     descDiv.classList.add('description');
-    authorDiv.classList.add('author')
-    pagesDiv.classList.add('pages')
+    authorDiv.classList.add('author');
+    pagesDiv.classList.add('pages');
     btnDel.classList.add('btn-del');
+    slider.classList.add('btn-slider');
+    readSlider.classList.add('btn-read');
+    readSlider.type=  'checkbox';
+    readSliderCircle.classList.add('btn-read-circle');
 
     titleDiv.textContent= subTitle;
-    descDiv.textContent=subDesc;
-    authorDiv.textContent=subAuthor;
-    pagesDiv.textContent=subPages;
+    descDiv.textContent= subDesc;
+    authorDiv.textContent= subAuthor;
+    pagesDiv.textContent= 'Pages:' + subPages;
     btnDel.textContent = 'X';
 
     libContent.appendChild(bookDiv);
@@ -66,23 +77,17 @@ function createVisualBook(subTitle,subDesc,subAuthor,subPages)
     bookDiv.appendChild(authorDiv);
     bookDiv.appendChild(pagesDiv);
     bookDiv.appendChild(btnDel);
+    bookDiv.appendChild(slider)
+    slider.appendChild(readSlider);
+    slider.appendChild(readSliderCircle)
 
 }
 
-function deleteBook(titleDiv)
+function deleteBook(titleDiv,book)
 {
 
     const find = libArray.findIndex((x) => x.title === titleDiv)
-    console.log(find);
      if (find!== -1) libArray.splice(find,1);
-    console.log(libArray);
-   // libContent.removeChild(node);
-    updateVisualBook();
-
-}
-
-function updateVisualBook(){
-
-
+    libContent.removeChild(book);
 
 }

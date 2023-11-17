@@ -1,27 +1,45 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.root
+{
+
+}
+
 html,
 body{
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 .layout{
-
 }
     
 
 .library-menu{
     display: flex;
-    height: 10em;
-    border: 1px solid black;
+    height: 8em;
     justify-content: center;
     align-items: center;
     background-color:thistle;
 }
 
 .btn-open{
-    height: 80%;
-    width: 20em;
+    background-color: rgba(00,00,00,0);
+    border: 1px solid black;
+    border-bottom: black 6px solid;
+    font-size: 2em;
+
+    border:none;
+}
+
+.btn-open:hover{
+    position: relative;
+    border-bottom: black 3px solid;
+    top: 6px;
+    
+
 }
 
 .btn-close
@@ -43,7 +61,7 @@ body{
     display: grid;
     grid-template: repeat(auto-fill, minmax(20em, 1fr))/ repeat(auto-fill, minmax(23em,1fr));
     background-color: bisque;
-    height: calc(100vh - 10em);
+    height: calc(100vh - 8em);
 }
 
 
@@ -78,9 +96,12 @@ body{
     }
     .description,
     .btn-del{
-        visibility: visible;
+        opacity: 1;
         transform: matrix3d(-1,0,0.00,0,0.00,1,0.00,0,0,0,-1,0,0,0,0,1);
+        transition: 0.8s;
+       
     }
+    
     
 
 }
@@ -107,14 +128,18 @@ body{
     font-weight: bold;
     font-size: 4em;
 }
+
+
 .description
 {
     overflow-y: auto;
-    visibility: hidden;
+    opacity: 0;
     grid-row: 1/-1;
     grid-column: 1/-1;
     z-index: 1; 
+    
 }
+
 .author
 {
     align-self: baseline;
@@ -142,6 +167,7 @@ body{
     font-size: 1.5em;
     border: black solid 1px;
     border-bottom: black 3px solid;
+    opacity: 0;
     
 }
 .btn-del:active
@@ -152,12 +178,75 @@ body{
     border-bottom: black 2px solid;
 }
 
+.btn-slider
+{
+    position: relative;
+    grid-row: 1/-1;
+    grid-column: 1/-1;
+    align-self: end;
+    justify-self: start;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 2.5em;
+    height: 1.3em;
+    padding: 0px;
+    margin: 0px;
+}
+
+
+.btn-read
+{
+    appearance: none;
+    position: absolute;
+    border-radius: 10px;
+    width: 3em;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0px;
+    background-color: rgba(197, 23, 23, 0.5);
+    
+    transition: 0.3s;
+    
+}
+.btn-read:checked
+{
+    background-color: rgba(93, 197, 23, 0.5);
+}
+.btn-read:checked + .book
+{
+    background-color: blue;
+}
+
+.btn-read:checked +.btn-read-circle
+{
+    left: 1.3em;
+    transition: 0.3s;
+
+}
+
+.btn-read-circle
+{
+    position:absolute;
+    background-color: black;
+    height: 1.2em;
+    width: 1em;
+    border-radius: 2em;
+    position: absolute;
+    left: 2px;
+    top:1px
+}
+
 
 
 .modal-form
 {
   height: 30em;
   width: 20em;
+  border-radius: 10px;
+  border:none;
+  background-color: turquoise;
 }
 
 .modal-form::backdrop
@@ -192,6 +281,7 @@ label:last-of-type
     grid-column: 1/3;
     resize: none;
     height: 10em;
+
 }
 
 #title,
