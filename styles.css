@@ -1,10 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
-.root
-{
 
-}
 
 html,
 body{
@@ -13,9 +10,6 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 
-.layout{
-}
-    
 
 .library-menu{
     display: flex;
@@ -106,19 +100,6 @@ body{
 
 }
 
-
-
-.book >.btn-close
-{
- 
-}
-
-
-.title,
-.description
-{
-    
-}
 
 .title
 {

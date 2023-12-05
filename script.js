@@ -18,7 +18,7 @@ btnSubmit.addEventListener('click', function addBookToLibrary()
     const subPages = document.querySelector('#pages').value;
     if(subTitle !== ''&& subAuthor !== '' && subPages !== '')
     {   
-    const myLibrary = new SaveBookInLibrary(subTitle,subDesc,subAuthor,subPages);
+    const myLibrary = new library(subTitle,subDesc,subAuthor,subPages);
     createVisualBook(subTitle,subDesc,subAuthor,subPages);
     libArray.push(myLibrary);
     }
@@ -27,15 +27,21 @@ btnSubmit.addEventListener('click', function addBookToLibrary()
  
 });
 
-function SaveBookInLibrary(subTitle,subDesc,subAuthor,subPages)
-{
+class library{
 
-    this.title = subTitle;
-    this.desc = subDesc;
-    this.author = subAuthor
-    this.pages = subPages;
+    constructor(subTitle,subDesc,subAuthor,subPages)
+    {
+
+        this.title = subTitle;
+        this.desc = subDesc;
+        this.author = subAuthor
+        this.pages = subPages;
+    }
+
 
 }
+
+
 
 
 function createVisualBook(subTitle,subDesc,subAuthor,subPages)
